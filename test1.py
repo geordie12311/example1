@@ -1,4 +1,7 @@
-from jinja2.environment import Template
+"""
+Python script to test
+jenkins config build
+"""
 from nornir import InitNornir
 from nornir_scrapli.tasks import send_configs
 from nornir_utils.plugins.functions import print_result
