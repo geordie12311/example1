@@ -9,6 +9,20 @@ from nornir_scrapli.tasks import send_command
 
 config_file = sys.argv[1]
 nr = InitNornir(config_file=config_file)
+
+"""
+making the config file dynamic using sys argument.
+I.e., add after python3 "filename" then "specify 
+configfile name" (example python3 test1.py config.yaml)
+"""
+config_file = sys.argv[1]
+nr = InitNornir(config_file=config_file)
+
+"""
+binding nornir username/passord to variables
+input on cli using export command
+"""
+
 nr.inventory.defaults.username = os.getenv("USERNAME")
 nr.inventory.defaults.password = os.getenv("PASSWORD")
 

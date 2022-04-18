@@ -12,12 +12,26 @@ from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_jinja2.plugins.tasks import template_file
 from nornir.core.exceptions import NornirExecutionError
 
-
 config_file = sys.argv[1]
 nr = InitNornir(config_file=config_file)
 nr.inventory.defaults.username = os.getenv("USERNAME")
 nr.inventory.defaults.password = os.getenv("PASSWORD")
 
+"""
+making the config file
+dynamic using sys argument.
+I.e., add after python3 "filename"
+then "specify configfile name"
+(example python3 test1.py config.yaml)
+"""
+config_file = sys.argv[1]
+nr = InitNornir(config_file=config_file)
+"""
+binding nornir username/passord to variables
+input on cli using export command
+"""
+nr.inventory.defaults.username = os.getenv("USERNAME")
+nr.inventory.defaults.password = os.getenv("PASSWORD")
 
 def pull_vars(task):
     """
