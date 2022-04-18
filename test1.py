@@ -4,12 +4,18 @@ jenkins config build
 """
 import os
 import sys
+from jinja2.environment import Template
 from nornir import InitNornir
 from nornir_scrapli.tasks import send_configs
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_jinja2.plugins.tasks import template_file
 from nornir.core.exceptions import NornirExecutionError
+
+config_file = sys.argv[1]
+nr = InitNornir(config_file=config_file)
+nr.inventory.defaults.username = os.getenv("USERNAME")
+nr.inventory.defaults.password = os.getenv("PASSWORD")
 
 """
 making the config file
