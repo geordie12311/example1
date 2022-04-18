@@ -1,0 +1,22 @@
+---
+
+T2:
+    hostname: "16.16.16.12"
+    port: 830
+    groups:
+    - cisco_group
+    location: "UK"
+
+T3:
+    hostname: "16.16.16.13"
+    port: 830
+    groups:
+      - cisco_group
+    location: "US"
+
+T4:
+    hostname: "16.16.16.14"
+    port: 830
+    groups:
+      - cisco_group
+    location: "Canada"
